@@ -4,7 +4,7 @@
 ## Purpose
 
 The script finds hardlinks to regular files within specified filesystem subtrees
-by listing all the underlying files and groupping them by inode.
+by finding files with link count more than 1 and groupping them by inode.
 
 ## Usage
 
@@ -22,15 +22,15 @@ harlinks [path [path ...]]
 ```
 ### Caution
 
-I would like to warn you against the use of the script on large file systems.
-The script reads all the files, sorts them, makes the selection and grouping of the operating system in memory, which can be very intensive use of system resources.
-I would advise you to specifying multiple non-overlapping sub-directories at a time instead of the entire partition.
+I would like to warn you against using the script on large file systems.
+If hard links are used extensively the script may read lots of files, then sorts them, makes the selection and grouping of the operating system in memory, which may cause very intensive use of system resources.
+I would advise you specifying multiple non-overlapping sub-directories at a time instead of an entire partition.
 
 ## Known issues
 
-Linux _find_ command is used to retrieve all files. The script accepts path arguments and passes them to find.
-Theoretically there expressions may be passed to filter set of files, but in this case _find_ would very likely exclude some files with the same inode,
-thus missing some hardlinks. Please be careful when passing options to the script.
+Linux _find_ command is used to retrieve files with hardlinks. The script accepts path arguments and passes them to find.
+As well as paths, expressions may be passed to the script, but in this case _find_ would very likely exclude some files with the same inode,
+therefore missing some hardlinks. Please be careful when passing options to the script.
 
 ## Example
 ```bash

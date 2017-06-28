@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+
 # Copyright (C) 2017 Victor Kulichenko
 
 # This program is free software: you can redistribute it and/or modify it under
@@ -28,4 +28,4 @@
 # <inode2><10 space chars><relative path to filename>
 #  ...
 
-find "$@" -type f -printf "%i          %p\n" | sort -s -n -k 1,1 | uniq --group -w 10 | awk 'BEGIN{FS="\n";RS="";ORS="\n\n"}NF>1{print}'
+find "$@" -type f -links +1 -printf "%i          %p\n" | sort -s -n -k 1,1 | uniq --group -w 10 | awk 'BEGIN{FS="\n";RS="";ORS="\n\n"}NF>1{print}'
