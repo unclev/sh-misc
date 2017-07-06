@@ -9,7 +9,7 @@ For eg. gedit
 gedit ~/.zsh_aliases & disown
 ```
 
-The zsh shell can look for alias anythere in the input, so then adding the alias
+The zsh shell can look for alias anywhere in a command line, so then adding the alias
 
 ```sh
 alias -g __='& disown'
@@ -21,7 +21,7 @@ allows to convert the above gedit example into
 gedit ~/~/.zshrc __
 ```
 
-##.zshrc
+## .zshrc
 
 This [piece of shell script](.zshrc#L4-L9) also demonstrates 
 including both `~/.bash_aliases` and `~/.zsh_aliases` in your zsh starting script.
@@ -31,5 +31,5 @@ including both `~/.bash_aliases` and `~/.zsh_aliases` in your zsh starting scrip
 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) users are encouraged to define aliases within the `ZSH_CUSTOM` folder.
 Files on the custom/ directory will be automatically loaded by the init script, in alphabetical order.
 
-So then there is (.oh-my-zsh/custom/aliases.zsh).
+So then there is [.oh-my-zsh/custom/aliases.zsh](.oh-my-zsh/custom/aliases.zsh).
 
